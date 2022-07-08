@@ -12,18 +12,53 @@ const navLinks = [
   "聯絡我們",
 ];
 
+const mediaLinks = [
+  {
+    url: "https:www.google.com",
+    img: "/nav/line.svg",
+    alt: "line",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/facebook.svg",
+    alt: "facebook",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/ig.svg",
+    alt: "ig",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/youtube.svg",
+    alt: "youtube",
+  },
+];
+
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-main min-h-full">
-      <header className="relative h-32 isolate flex px-16 items-center">
-        <div className="w-60 h-24 relative ">
-          <Image src="/logo.png" layout="fill" objectFit="contain" alt="logo" />
+    <div className="flex flex-col min-h-full bg-main">
+      <header className="relative flex items-center h-32 px-16 isolate">
+        <div className="relative h-24 w-60 ">
+          <Image
+            src="/nav/logo.png"
+            layout="fill"
+            objectFit="contain"
+            alt="logo"
+          />
         </div>
-        <nav>
+        <nav className="flex justify-around flex-1 text-lg font-medium font-inter text-green-primary">
           {navLinks.map((l, i) => (
             <Link href="/" key={i}>
               <a>{l}</a>
             </Link>
+          ))}
+        </nav>
+        <nav className="flex items-center gap-7">
+          {mediaLinks.map((m, i) => (
+            <a key={i} href={m.url} className="h-5 ">
+              <Image width={20} height={20} alt={m.alt} src={m.img} />
+            </a>
           ))}
         </nav>
 
@@ -31,7 +66,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           viewBox="0 0 1440 124"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute w-full h-full left-0 top-0 -z-10"
+          className="absolute top-0 left-0 w-full h-full -z-10"
         >
           <path
             opacity="0.9"
