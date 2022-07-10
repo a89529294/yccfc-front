@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .left-arm {
+    @apply before:content-[''] before:-left-10 before:top-1 before:h-5 before:aspect-square before:border-r-2 before:border-green-primary before:border-solid before:block before:absolute before:skew-x-[45deg];
+  }
+  .right-arm {
+    @apply after:content-[''] after:-right-10 after:top-1 after:h-5 after:aspect-square after:border-l-2 after:border-green-primary after:border-solid after:block after:absolute after:skew-x-[-45deg];
+  }
+}
+
 html,
 body,
 #__next {

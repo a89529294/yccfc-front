@@ -2,55 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const navLinks = [
-  "關於我們",
-  "最新消息",
-  "房型介紹",
-  "餐點介紹",
-  "親子設施",
-  "立即訂房",
-  "聯絡我們",
-];
-
-const mediaLinks = [
-  {
-    url: "https:www.google.com",
-    img: "/nav/line.svg",
-    alt: "line",
-  },
-  {
-    url: "https:www.google.com",
-    img: "/nav/facebook.svg",
-    alt: "facebook",
-  },
-  {
-    url: "https:www.google.com",
-    img: "/nav/ig.svg",
-    alt: "ig",
-  },
-  {
-    url: "https:www.google.com",
-    img: "/nav/youtube.svg",
-    alt: "youtube",
-  },
-];
-
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-full bg-main">
       <header className="relative flex items-center h-32 px-16 isolate">
-        <div className="relative h-24 w-60 ">
-          <Image
-            src="/nav/logo.png"
-            layout="fill"
-            objectFit="contain"
-            alt="logo"
-          />
-        </div>
+        <Link href="/">
+          <a className="relative block h-24 w-60">
+            <Image
+              src="/nav/logo.png"
+              layout="fill"
+              objectFit="contain"
+              alt="logo"
+            />
+          </a>
+        </Link>
         <nav className="flex justify-around flex-1 text-lg font-medium font-inter text-green-primary">
           {navLinks.map((l, i) => (
-            <Link href="/" key={i}>
-              <a>{l}</a>
+            <Link href={l.path} key={i}>
+              <a>{l.text}</a>
             </Link>
           ))}
         </nav>
@@ -80,5 +49,59 @@ function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+const navLinks = [
+  {
+    text: "關於我們",
+    path: "/about-us",
+  },
+  {
+    text: "最新消息",
+    path: "/latest-news",
+  },
+  {
+    text: "房型介紹",
+    path: "/rooms-showcase",
+  },
+  {
+    text: "餐點介紹",
+    path: "/meals",
+  },
+  {
+    text: "親子設施",
+    path: "/child-friendly-equipment",
+  },
+  {
+    text: "立即訂房",
+    path: "/reservation",
+  },
+  {
+    text: "聯絡我們",
+    path: "/contact-us",
+  },
+];
+
+const mediaLinks = [
+  {
+    url: "https:www.google.com",
+    img: "/nav/line.svg",
+    alt: "line",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/facebook.svg",
+    alt: "facebook",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/ig.svg",
+    alt: "ig",
+  },
+  {
+    url: "https:www.google.com",
+    img: "/nav/youtube.svg",
+    alt: "youtube",
+  },
+];
 
 export default Layout;
