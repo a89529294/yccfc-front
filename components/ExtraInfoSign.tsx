@@ -21,12 +21,7 @@ function ExtraInfoSign({
           flip ? "order-1" : ""
         }`}
       >
-        <Image
-          width={16}
-          height={16}
-          src="/about-us/plus.svg"
-          alt="plus sign"
-        />
+        <Image width={16} height={16} src="/plus.svg" alt="plus sign" />
       </div>
       <div
         className={`w-0 border border-solid border-orange-primary ${length}`}

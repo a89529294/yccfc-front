@@ -4,7 +4,7 @@ import React from "react";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col min-h-full bg-main">
+    <div className="flex flex-col min-h-full bg-cover bg-main">
       <header className="relative flex items-center h-32 px-16 isolate">
         <Link href="/">
           <a className="relative block h-24 w-60">
@@ -35,7 +35,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           viewBox="0 0 1440 124"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute top-0 left-0 w-full h-full -z-10"
+          className="absolute top-0 left-0 w-full -z-10"
         >
           <path
             opacity="0.9"
