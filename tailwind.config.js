@@ -22,6 +22,9 @@ module.exports = {
       width: {
         container: "520px",
       },
+      gridTemplateColumns: {
+        "news-container": "repeat(auto-fill, minmax(200px,1fr))",
+      },
     },
   },
   plugins: [],
