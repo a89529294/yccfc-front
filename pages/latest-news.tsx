@@ -37,7 +37,6 @@ function Article({
           style={{ width: width + "px", height: height + "px" }}
         />
         <Image
-          // layout="responsive"
           layout="fill"
           objectFit="cover"
           alt="news image"

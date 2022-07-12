@@ -4,16 +4,11 @@ import React from "react";
 import ExtraInfoSign from "../components/ExtraInfoSign";
 
 import map from "../assets/about-us/about-us-map-hd.png";
-import close from "../assets/close-container.svg";
 import MainPageLayout from "../components/MainPageLayout";
 
 function aboutUs() {
   return (
     <MainPageLayout headerImgURL="/about-us/header.png">
-      <div className="absolute right-0 translate-x-full cursor-pointer top-2">
-        <Image width={50} height={50} src={close} alt="close container" />
-      </div>
-
       <section className=" pt-11 font-noto-sans">
         <h2 className="text-sm font-medium text-green-primary mb-7">
           「緣溪行，忘路之遠近。」歡迎您帶著親愛的家人，輕裝簡行，來到埔里；走進心裡的美好。

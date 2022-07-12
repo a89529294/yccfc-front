@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         "green-primary": "rgb(58, 119, 82)",
         "orange-primary": "#cf612e",
+        "red-primary": "#DD4040",
         container: "#F5F5F5",
         body: "#4B4B4B",
       },
