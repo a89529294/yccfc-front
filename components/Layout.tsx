@@ -4,7 +4,7 @@ import React from "react";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col min-h-full bg-no-repeat bg-contain bg-main">
+    <div className="flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto] bg-main">
       <header className="relative flex items-center h-32 px-16 isolate">
         <Link href="/">
           <a className="relative block h-24 w-60">

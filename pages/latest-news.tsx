@@ -36,6 +36,7 @@ function Article({
           className="absolute bg-green-primary top-2 left-2"
           style={{ width: width + "px", height: height + "px" }}
         />
+        {/* TODO change the green bg to using ::before */}
         <Image
           layout="fill"
           objectFit="cover"

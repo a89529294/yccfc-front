@@ -1,32 +1,23 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import FlagTitle from "../components/FlagTitle";
+import ListItem from "../components/ListItem";
 import MainPageLayout from "../components/MainPageLayout";
+import Slider from "../components/Slider";
 import LeftArrow from "../components/svg/LeftArrow";
 
 import RightArrow from "../components/svg/RightArrow";
 import SlantedFlag from "../components/svg/SlantedFlag";
+import UnderscoredFlagTitle from "../components/UnderscoredFlagTitle";
 
 function RoomsShowcase() {
-  const [position, setPosition] = useState(0);
-  const distance = position * -136; //based on img width: 130 + gap: 6
-
-  function slideLeft() {
-    if (position + 1 <= upperLimit) setPosition((p) => ++p);
-  }
-
-  function slideRight() {
-    if (position - 1 >= lowerLimit) setPosition((p) => --p);
-  }
-
   return (
     <MainPageLayout
       headerImgURL="/rooms-showcase/title_tent.svg"
       className="py-8 font-noto-sans"
     >
       <div className="flex justify-between text-orange-primary mb-[14px]">
-        <div className="relative isolate flex items-center gap-[10px] text-2xl font-bold before:content-[''] before:absolute before:block before:bg-green-primary before:h-2 before:w-11/12 before:-z-10 before:bottom-0">
-          溪遊獵 <SlantedFlag fill="fill-orange-primary" />
-        </div>
+        <UnderscoredFlagTitle>溪遊獵</UnderscoredFlagTitle>
         <ReservationButton />
       </div>
       <section className="flex flex-col gap-[6px] mb-6">
@@ -38,38 +29,7 @@ function RoomsShowcase() {
             alt="main img"
           />
         </div>
-        <div className="relative">
-          <div
-            className="absolute -left-[6px] -translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2 cursor-pointer"
-            onClick={slideLeft}
-          >
-            <LeftArrow width="w-[10px]" height="h-[10px]" />
-          </div>
-          <div className="w-full overflow-hidden">
-            <div
-              className="flex gap-[6px] transition-transform"
-              style={{ transform: `translateX(${distance}px)` }}
-            >
-              {imgs.map((img, i) => (
-                <div key={i} className="relative w-[130px] h-[73px] shrink-0">
-                  <Image
-                    key={i}
-                    src={img}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="img"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div
-            className="absolute -right-[6px] translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2 cursor-pointer"
-            onClick={slideRight}
-          >
-            <RightArrow width="w-[10px]" height="h-[10px]" />
-          </div>
-        </div>
+        <Slider imgs={imgs} imgDimensions={{ width: 130, height: 73 }} />
       </section>
       <section className="grid gap-6 text-xs leading-5 text-body mb-7">
         <p>
@@ -80,40 +40,29 @@ function RoomsShowcase() {
         <p>帳蓬數：6帳（寵物友善）不可加床，毛小孩每隻將加收NT300清潔費</p>
         <p>一泊二食-4人套餐</p>
       </section>
-      <section className="mb-7">
-        <h2 className="relative flex mb-[10px]">
-          帳內設備
-          <SlantedFlag className="absolute -translate-x-full -translate-y-1/2 -left-1 top-1/2" />
-        </h2>
-        <ul className="grid text-xs leading-5 list-inside gap-7 text-body">
+      <section className="mb-7 grid gap-2.5">
+        <FlagTitle>帳內設備</FlagTitle>
+        <ul className="grid text-xs leading-5 gap-7 text-body">
           {equipmentsList.map((l, i) => (
-            <li
-              key={i}
-              style={{
-                listStyleImage: 'url("/rooms-showcase/list-item-icon.svg")',
-              }}
-              className="last-of-type:text-red-primary"
-            >
+            <ListItem key={i} className="last-of-type:text-red-primary">
               {l}
-            </li>
+            </ListItem>
           ))}
         </ul>
       </section>
-      <section className="mb-9">
-        <h2 className="relative flex mb-[10px]">
-          住宿須知
-          <SlantedFlag className="absolute -translate-x-full -translate-y-1/2 -left-1 top-1/2" />
-        </h2>
-        <ul className="grid text-xs leading-5 list-inside gap-7 text-body">
+      <section className="mb-8 grid gap-[10px]">
+        <FlagTitle>住宿須知</FlagTitle>
+        <ul className="grid text-xs leading-5 gap-7 text-body">
           {noticeList.map((l, i) => (
-            <li
-              key={i}
-              style={{
-                listStyleImage: 'url("/rooms-showcase/list-item-icon.svg")',
-              }}
-            >
-              {l}
-            </li>
+            <ListItem key={i}>{l}</ListItem>
+          ))}
+        </ul>
+      </section>
+      <section className="mb-9 grid gap-[10px]">
+        <FlagTitle>平/假日判定</FlagTitle>
+        <ul className="text-xs leading-5 text-body">
+          {holiVSNonholi.map((l, i) => (
+            <li key={i}>{l}</li>
           ))}
         </ul>
       </section>
@@ -157,7 +106,10 @@ const noticeList = [
   "為提供良好的露宿品質環境，於夜間 22:00 後需關閉音響設施且降低音量避免引響其他住客休息品質。",
 ];
 
-const upperLimit = imgs.length - 3;
-const lowerLimit = 0;
+const holiVSNonholi = [
+  "平日（定義：非連續假日 週日~周四）",
+  "假日（定義：週五~週六、國定連續假日之前夕、寒暑假期間：週日～周四）",
+  "特殊假日（定義：寒暑假期間的週五至周六、國定連續假日）",
+];
 
 export default RoomsShowcase;

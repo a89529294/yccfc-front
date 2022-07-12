@@ -6,8 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        2.5: "10px",
+      },
       backgroundImage: {
         main: 'url("/main-bg.png")',
+        "down-chevron": 'url("/meals/down-chevron.svg")',
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
