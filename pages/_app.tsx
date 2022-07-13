@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <Layout useGMap={Component.name === "ContactUs"}>
       <Component {...pageProps} />
     </Layout>
   );

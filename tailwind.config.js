@@ -7,10 +7,12 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
+        1.5: "6px",
         2.5: "10px",
       },
       backgroundImage: {
         main: 'url("/main-bg.png")',
+        "main-g-map": 'url("/main-g-map.png")',
         "down-chevron": 'url("/meals/down-chevron.svg")',
       },
       fontFamily: {

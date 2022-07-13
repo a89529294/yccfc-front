@@ -16,7 +16,7 @@ function MainPageLayout({
   return (
     <div className="flex-1 px-16 pt-20">
       <div className="relative px-10 pb-5 w-container bg-container">
-        <div className="relative h-24 -ml-10 -mr-10">
+        <div className="relative -ml-10 -mr-10 aspect-[520/92]">
           <Image
             src={headerImgURL}
             layout="fill"

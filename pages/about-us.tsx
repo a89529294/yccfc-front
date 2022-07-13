@@ -8,7 +8,7 @@ import MainPageLayout from "../components/MainPageLayout";
 
 function aboutUs() {
   return (
-    <MainPageLayout headerImgURL="/about-us/header.png">
+    <MainPageLayout headerImgURL="/about-us/title_about.svg">
       <section className=" pt-11 font-noto-sans">
         <h2 className="text-sm font-medium text-green-primary mb-7">
           「緣溪行，忘路之遠近。」歡迎您帶著親愛的家人，輕裝簡行，來到埔里；走進心裡的美好。

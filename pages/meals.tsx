@@ -63,7 +63,7 @@ function Meals() {
           <div className="grid grid-cols-2 gap-x-3 gap-y-5">
             {meats.map((m, i) => (
               <div key={i}>
-                <div className="relative aspect-[210/152] before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-green-primary before:left-1 before:top-1">
+                <div className="relative aspect-[210/152] shifted-green-bg">
                   <Image
                     src={m.path}
                     alt="meat"

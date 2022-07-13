@@ -9,6 +9,10 @@
   .right-arm {
     @apply after:content-[''] after:-right-10 after:top-1 after:h-5 after:aspect-square after:border-l-2 after:border-green-primary after:border-solid after:block after:absolute after:skew-x-[-45deg];
   }
+
+  .shifted-green-bg {
+    @apply before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-green-primary before:left-1 before:top-1 before:-z-10 isolate;
+  }
 }
 
 html,

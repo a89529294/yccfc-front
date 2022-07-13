@@ -35,12 +35,13 @@ function Slider({
 
   return (
     <div className="relative" ref={ref}>
-      <div
-        className="absolute -left-[6px] -translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2 cursor-pointer"
+      <button
+        className="absolute -left-[6px] -translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2"
         onClick={slideLeft}
       >
         <LeftArrow width="w-[10px]" height="h-[10px]" />
-      </div>
+      </button>
+      {/* TODO use ArrowButton instead */}
       <div className="w-full overflow-hidden">
         <div
           className="flex gap-[6px] transition-transform"
@@ -63,12 +64,13 @@ function Slider({
           ))}
         </div>
       </div>
-      <div
-        className="absolute -right-[6px] translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2 cursor-pointer"
+      <button
+        className="absolute -right-[6px] translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2"
         onClick={slideRight}
       >
         <RightArrow width="w-[10px]" height="h-[10px]" />
-      </div>
+      </button>
+      {/* TODO use ArrowButton instead */}
     </div>
   );
 }
