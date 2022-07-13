@@ -129,7 +129,7 @@ function ContactUs() {
         </article>
       </section>
 
-      <form className="grid bg-[#F5F5F5] px-10 pt-5 pb-7 -ml-10 -mr-10 gap-5">
+      <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-light-grey pb-7">
         <h2 className="text-xs font-medium text-orange-primary">
           請留下您的資訊，我們將會盡快聯繫您
         </h2>

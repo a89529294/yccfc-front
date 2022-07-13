@@ -24,6 +24,7 @@ module.exports = {
         "orange-primary": "#cf612e",
         "red-primary": "#DD4040",
         "grey-primary": "#9F9F9F",
+        "light-grey": "#F5F5F5",
         body: "#4B4B4B",
         placeholder: "#D9D9D9",
       },
