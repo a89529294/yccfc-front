@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-
-import LeftArrow from "./svg/LeftArrow";
-import RightArrow from "./svg/RightArrow";
+import ArrowButton from "./ArrowButton";
 
 function Slider({
   imgs,
@@ -35,13 +33,11 @@ function Slider({
 
   return (
     <div className="relative" ref={ref}>
-      <button
-        className="absolute -left-[6px] -translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2"
+      <ArrowButton
         onClick={slideLeft}
-      >
-        <LeftArrow width="w-[10px]" height="h-[10px]" />
-      </button>
-      {/* TODO use ArrowButton instead */}
+        dir="left"
+        className="absolute -left-[6px] -translate-x-full top-1/2 -translate-y-1/2"
+      />
       <div className="w-full overflow-hidden">
         <div
           className="flex gap-[6px] transition-transform"
@@ -64,13 +60,11 @@ function Slider({
           ))}
         </div>
       </div>
-      <button
-        className="absolute -right-[6px] translate-x-full top-1/2 -translate-y-1/2 text-orange-primary border border-solid border-orange-primary p-2"
+      <ArrowButton
         onClick={slideRight}
-      >
-        <RightArrow width="w-[10px]" height="h-[10px]" />
-      </button>
-      {/* TODO use ArrowButton instead */}
+        dir="right"
+        className="absolute -right-[6px] translate-x-full top-1/2 -translate-y-1/2"
+      />
     </div>
   );
 }

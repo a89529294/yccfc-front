@@ -23,14 +23,18 @@ module.exports = {
         "green-primary": "rgb(58, 119, 82)",
         "orange-primary": "#cf612e",
         "red-primary": "#DD4040",
-        container: "#F5F5F5",
+        "grey-primary": "#9F9F9F",
         body: "#4B4B4B",
+        placeholder: "#D9D9D9",
       },
       width: {
         container: "520px",
       },
       gridTemplateColumns: {
         "news-container": "repeat(auto-fill, minmax(200px,1fr))",
+      },
+      screens: {
+        "hover-hover": { raw: "(hover: hover)" },
       },
     },
   },

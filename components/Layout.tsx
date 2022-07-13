@@ -35,8 +35,13 @@ function Layout({
         </nav>
         <nav className="flex items-center gap-7">
           {mediaLinks.map((m, i) => (
-            <a key={i} href={m.url} className="h-5 ">
-              <Image width={20} height={20} alt={m.alt} src={m.img} />
+            <a key={i} href={m.url} className="h-5 group">
+              <div className="hover-hover:group-hover:hidden">
+                <Image width={20} height={20} alt={m.alt} src={m.img} />
+              </div>
+              <div className="hidden hover-hover:group-hover:block">
+                <Image width={20} height={20} alt={m.alt} src={m.imgHover} />
+              </div>
             </a>
           ))}
         </nav>
@@ -95,21 +100,25 @@ const mediaLinks = [
   {
     url: "https:www.google.com",
     img: "/nav/line.svg",
+    imgHover: "/nav/line-hover.svg",
     alt: "line",
   },
   {
     url: "https:www.google.com",
-    img: "/nav/facebook.svg",
+    img: "/nav/fb.svg",
+    imgHover: "/nav/fb-hover.svg",
     alt: "facebook",
   },
   {
     url: "https:www.google.com",
     img: "/nav/ig.svg",
+    imgHover: "/nav/ig-hover.svg",
     alt: "ig",
   },
   {
     url: "https:www.google.com",
-    img: "/nav/youtube.svg",
+    img: "/nav/yt.svg",
+    imgHover: "/nav/yt-hover.svg",
     alt: "youtube",
   },
 ];

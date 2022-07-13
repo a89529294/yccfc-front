@@ -22,6 +22,7 @@ function ContactUs() {
     <MainPageLayout
       headerImgURL="/contact-us/title_contact.svg"
       className="font-noto-sans"
+      hideFooter
     >
       <section className="grid gap-5 pt-8 pb-6">
         <article className="grid gap-4">
@@ -33,7 +34,11 @@ function ContactUs() {
         <article className="grid gap-3">
           <UnderscoredFlagTitle>周邊景點</UnderscoredFlagTitle>
           <div className="relative">
-            <ArrowButton className="-left-2" dir="left" onClick={slideLeft} />
+            <ArrowButton
+              className="absolute -translate-x-full -translate-y-1/2 -left-2 top-1/2"
+              dir="left"
+              onClick={slideLeft}
+            />
             <div className="overflow-hidden" ref={galleryContainerRef}>
               <div
                 className="flex gap-[2%] transition-transform"
@@ -42,9 +47,12 @@ function ContactUs() {
                 }}
               >
                 {attractions.map((a, i) => (
-                  <div key={i} className="basis-[32%] shrink-0 ">
+                  <div
+                    key={i}
+                    className="basis-[32%] shrink-0 border-b-[3px] border-solid border-green-primary"
+                  >
                     <div
-                      className="relative aspect-[142/106]"
+                      className="relative aspect-[142/106] mb-2"
                       ref={imageContainerRef}
                     >
                       <Image
@@ -64,20 +72,87 @@ function ContactUs() {
                         }}
                       />
                     </div>
+                    <h2 className="mb-1 text-sm font-bold text-green-primary">
+                      {a.name}
+                    </h2>
+                    <h3 className="mb-3 text-xs font-medium text-orange-primary">
+                      路程｜{a.duration}分鐘
+                    </h3>
                   </div>
                 ))}
               </div>
             </div>
             <ArrowButton
-              className="-right-2"
+              className="absolute translate-x-full -translate-y-1/2 -right-2 top-1/2"
               dir="right"
               onClick={slideRight}
             />
           </div>
         </article>
-        <article></article>
+        <article className="grid gap-4">
+          <UnderscoredFlagTitle>聯絡我們</UnderscoredFlagTitle>
+          <div className="grid grid-cols-2 text-sm text-body">
+            <div className="grid items-center gap-5">
+              <p>地址｜南投縣埔里鎮乾溪景觀橋</p>
+              <p>電話｜049-2900389</p>
+              <p>
+                時間｜check in / 3:00pm
+                <br />
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;check out
+                / 12:00am
+              </p>
+            </div>
+            <div className="grid justify-center">
+              <div className="flex gap-2.5 items-center">
+                <Image
+                  width={25}
+                  height={25}
+                  src="/contact-us/line-normal.svg"
+                  alt="line"
+                />
+                歡迎加入我們的LINE！
+              </div>
+
+              <Image
+                width={133}
+                height={133}
+                src="/contact-us/qr.svg"
+                alt="qr-code"
+              />
+            </div>
+          </div>
+        </article>
       </section>
-      <section></section>
+
+      <form className="grid bg-[#F5F5F5] px-10 pt-5 pb-7 -ml-10 -mr-10 gap-5">
+        <h2 className="text-xs font-medium text-orange-primary">
+          請留下您的資訊，我們將會盡快聯繫您
+        </h2>
+        <div className="grid gap-4 text-sm font-medium ">
+          <input
+            type="text"
+            placeholder="請輸入您的姓名"
+            className="placeholder:text-placeholder py-1.5 px-4"
+          />
+          <input
+            type="text"
+            placeholder="請輸入您的手機"
+            className="placeholder:text-placeholder py-1.5 px-4"
+          />
+          <textarea
+            cols={30}
+            rows={10}
+            className="px-4 py-3 resize-none placeholder:text-placeholder"
+            placeholder="請輸入您想說的話..."
+          ></textarea>
+          <button
+            className="px-8 py-2 text-xs font-medium border border-solid text-orange-primary border-orange-primary justify-self-center"
+            onClick={(e) => e.preventDefault()}
+          >
+            送出
+          </button>
+        </div>
+      </form>
     </MainPageLayout>
   );
 }

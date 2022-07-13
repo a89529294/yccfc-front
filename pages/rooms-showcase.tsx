@@ -4,10 +4,7 @@ import FlagTitle from "../components/FlagTitle";
 import ListItem from "../components/ListItem";
 import MainPageLayout from "../components/MainPageLayout";
 import Slider from "../components/Slider";
-import LeftArrow from "../components/svg/LeftArrow";
-
-import RightArrow from "../components/svg/RightArrow";
-import SlantedFlag from "../components/svg/SlantedFlag";
+import rightArrow from "../assets/right-arrow.svg";
 import UnderscoredFlagTitle from "../components/UnderscoredFlagTitle";
 
 function RoomsShowcase() {
@@ -76,7 +73,8 @@ function ReservationButton({ className = "" }: { className?: string }) {
     <button
       className={`flex items-center gap-1 px-3 py-2 text-xs font-medium border border-solid text-orange-primary border-orange-primary ${className}`}
     >
-      立即訂房 <RightArrow width="w-[10px]" height="h-[10px]" />
+      立即訂房
+      <Image width={10} height={10} src={rightArrow} alt="right arrow" />
     </button>
   );
 }
