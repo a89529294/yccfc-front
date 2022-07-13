@@ -7,6 +7,8 @@ import Slider from "../components/Slider";
 import rightArrow from "../assets/right-arrow.svg";
 import UnderscoredFlagTitle from "../components/UnderscoredFlagTitle";
 
+import { shimmer, toBase64 } from "../components/BlurredImage";
+
 function RoomsShowcase() {
   return (
     <MainPageLayout
@@ -24,6 +26,10 @@ function RoomsShowcase() {
             layout="fill"
             objectFit="cover"
             alt="main img"
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              shimmer(500, 500)
+            )}`}
           />
         </div>
         <Slider imgs={imgs} imgDimensions={{ width: 130, height: 73 }} />

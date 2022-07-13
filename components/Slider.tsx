@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ArrowButton from "./ArrowButton";
+import { shimmer, toBase64 } from "./BlurredImage";
 
 function Slider({
   imgs,
@@ -55,6 +56,10 @@ function Slider({
                 layout="fill"
                 objectFit="cover"
                 alt="img"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500)
+                )}`}
               />
             </div>
           ))}

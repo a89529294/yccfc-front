@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import ArrowButton from "../components/ArrowButton";
+import { shimmer, toBase64 } from "../components/BlurredImage";
 import MainPageLayout from "../components/MainPageLayout";
 import UnderscoredFlagTitle from "../components/UnderscoredFlagTitle";
 
@@ -70,6 +71,10 @@ function ContactUs() {
                               : 8.8
                           );
                         }}
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                          shimmer(500, 500)
+                        )}`}
                       />
                     </div>
                     <h2 className="mb-1 text-sm font-bold text-green-primary">
