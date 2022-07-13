@@ -1,5 +1,6 @@
-import Image, { StaticImageData } from "next/image";
-import React, { useRef, useState } from "react";
+import Image from "next/image";
+import React from "react";
+import { toBase64, shimmer } from "../components/BlurredImage";
 import MainPageLayout from "../components/MainPageLayout";
 
 function ChildFriendlyEquipments() {
@@ -27,7 +28,16 @@ function Article({
     <article className="relative font-noto-sans shifted-green-bg">
       <div className="bg-white grid gap-2.5 px-1.5 pt-1.5 pb-4 border border-solid border-green-primary">
         <div className="relative w-full aspect-[197/111]">
-          <Image layout="fill" objectFit="cover" alt="news image" src={img} />
+          <Image
+            layout="fill"
+            objectFit="cover"
+            alt="news image"
+            src={img}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              shimmer(500, 500)
+            )}`}
+          />
         </div>
         <h2 className="text-lg font-medium text-green-primary ">{title}</h2>
         <h3 className="text-xs font-normal leading-5 text-body">{body}</h3>

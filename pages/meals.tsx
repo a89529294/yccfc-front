@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { shimmer, toBase64 } from "../components/BlurredImage";
 import FlagTitle from "../components/FlagTitle";
 import ListItem from "../components/ListItem";
 import MainPageLayout from "../components/MainPageLayout";
@@ -33,6 +34,10 @@ function Meals() {
               alt="beef"
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimmer(500, 500)
+              )}`}
             />
           </div>
           <Slider imgs={imgs} imgDimensions={{ width: 158, height: 88 }} />
@@ -69,6 +74,10 @@ function Meals() {
                     alt="meat"
                     layout="fill"
                     objectFit="cover"
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(500, 500)
+                    )}`}
                   />
                 </div>
                 <h2 className="mt-4 mb-1 text-lg font-medium text-green-primary">
@@ -88,6 +97,10 @@ function Meals() {
                 alt="meat"
                 layout="fill"
                 objectFit="cover"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500)
+                )}`}
               />
             </div>
             <p className="mb-3 text-xs leading-5 text-body">{a.body}</p>

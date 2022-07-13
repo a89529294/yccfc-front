@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import MainPageLayout from "../components/MainPageLayout";
 
 import newsArticleImg from "../assets/latest-news/placeholder.png";
+import { toBase64, shimmer } from "../components/BlurredImage";
 
 function latestNews() {
   return (
@@ -46,6 +47,10 @@ function Article({
             setWidth(ref.current?.clientWidth || 210);
             setHeight(ref.current?.clientHeight || 150);
           }}
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimmer(500, 500)
+          )}`}
         />
       </div>
 
