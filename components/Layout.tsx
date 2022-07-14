@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Layout({
   children,
@@ -9,12 +9,38 @@ function Layout({
   children: React.ReactNode;
   useGMap?: Boolean;
 }) {
+  const [currentBgIdx, setCurrentBgIdx] = useState(1);
+
+  const [toggle, setToggle] = useState(true);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setToggle((t) => !t);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div
-      className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
-        useGMap ? "bg-main-g-map" : "bg-main"
+      //   className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
+      //     useGMap ? "bg-main-g-map" : bgs[currentBgIdx]
+      //   }`}
+      className={`relative flex flex-col min-h-full ${
+        useGMap ? "bg-main-g-map" : ""
       }`}
     >
+      <BackgroundImage
+        startingIndex={0}
+        main={toggle === true}
+        setCurrentBgIdx={setCurrentBgIdx}
+        currentBgIdx={currentBgIdx}
+      />
+      <BackgroundImage
+        startingIndex={1}
+        main={toggle === false}
+        setCurrentBgIdx={setCurrentBgIdx}
+        currentBgIdx={currentBgIdx}
+      />
+
       <header className="relative flex items-center h-32 px-16 isolate">
         <Link href="/">
           <a className="relative block h-24 w-60">
@@ -64,6 +90,68 @@ function Layout({
     </div>
   );
 }
+
+function BackgroundImage({
+  startingIndex,
+  main,
+  setCurrentBgIdx,
+  currentBgIdx,
+}: {
+  startingIndex: number;
+  main: boolean;
+  setCurrentBgIdx: React.Dispatch<React.SetStateAction<number>>;
+  currentBgIdx: number;
+}) {
+  const [opacity, setOpacity] = useState(0);
+  const [imgPath, setImagePath] = useState(bgURLs[startingIndex]);
+
+  useEffect(() => {
+    main && setOpacity(1);
+    !main && setOpacity(0);
+  }, [main]);
+
+  useEffect(() => {}, [currentBgIdx]);
+
+  return (
+    <div
+      className="absolute w-full h-screen transition-opacity duration-1000"
+      style={{ opacity }}
+      onTransitionEnd={(e) => {
+        const opacity = window
+          .getComputedStyle(e.target as Element)
+          .getPropertyValue("opacity");
+        if (!+opacity) {
+          setCurrentBgIdx((i) => {
+            const newI = i < bgURLs.length - 1 ? ++i : 0;
+            setImagePath(bgURLs[newI]);
+            return newI;
+          });
+        }
+      }}
+    >
+      <Image objectFit="cover" layout="fill" src={imgPath} alt="bg" />
+    </div>
+  );
+}
+
+const bgURLs = [
+  "/main-bg/1-min.png",
+  "/main-bg/2-min.png",
+  "/main-bg/3-min.png",
+  "/main-bg/4-min.png",
+  "/main-bg/5-min.png",
+  "/main-bg/6-min.png",
+  "/main-bg/7-min.png",
+  "/main-bg/8-min.png",
+  "/main-bg/9-min.png",
+  "/main-bg/10-min.png",
+  "/main-bg/11-min.png",
+  "/main-bg/12-min.png",
+  "/main-bg/13-min.png",
+  "/main-bg/14-min.png",
+  "/main-bg/15-min.png",
+  "/main-bg/16-min.png",
+];
 
 const navLinks = [
   {
