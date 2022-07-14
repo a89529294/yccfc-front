@@ -24,22 +24,30 @@ function Layout({
       //   className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
       //     useGMap ? "bg-main-g-map" : bgs[currentBgIdx]
       //   }`}
-      className={`isolate  relative flex flex-col min-h-full ${
-        useGMap ? "bg-main-g-map" : ""
-      }`}
+      className="relative flex flex-col min-h-full isolate"
     >
-      <BackgroundImage
-        startingIndex={0}
-        main={toggle === true}
-        setCurrentBgIdx={setCurrentBgIdx}
-        currentBgIdx={currentBgIdx}
-      />
-      <BackgroundImage
-        startingIndex={1}
-        main={toggle === false}
-        setCurrentBgIdx={setCurrentBgIdx}
-        currentBgIdx={currentBgIdx}
-      />
+      {useGMap ? (
+        <iframe
+          id="contact-us-map"
+          className="absolute w-full h-screen bg-white-smoke"
+          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        ></iframe>
+      ) : (
+        <>
+          <BackgroundImage
+            startingIndex={0}
+            main={toggle === true}
+            setCurrentBgIdx={setCurrentBgIdx}
+            currentBgIdx={currentBgIdx}
+          />
+          <BackgroundImage
+            startingIndex={1}
+            main={toggle === false}
+            setCurrentBgIdx={setCurrentBgIdx}
+            currentBgIdx={currentBgIdx}
+          />
+        </>
+      )}
 
       <header className="relative flex items-center h-32 px-16 isolate">
         <Link href="/">
