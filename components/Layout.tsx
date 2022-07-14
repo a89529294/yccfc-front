@@ -24,7 +24,7 @@ function Layout({
       //   className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
       //     useGMap ? "bg-main-g-map" : bgs[currentBgIdx]
       //   }`}
-      className={`relative flex flex-col min-h-full ${
+      className={`isolate  relative flex flex-col min-h-full ${
         useGMap ? "bg-main-g-map" : ""
       }`}
     >
@@ -114,7 +114,7 @@ function BackgroundImage({
 
   return (
     <div
-      className="absolute w-full h-screen transition-opacity duration-1000"
+      className="absolute w-full h-screen transition-opacity duration-1000 -z-10"
       style={{ opacity }}
       onTransitionEnd={(e) => {
         const opacity = window

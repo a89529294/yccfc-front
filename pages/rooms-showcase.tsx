@@ -34,7 +34,7 @@ function RoomsShowcase() {
         </div>
         <Slider imgs={imgs} imgDimensions={{ width: 130, height: 73 }} />
       </section>
-      <section className="grid gap-6 text-xs leading-5 text-body mb-7">
+      <section className="grid gap-6 text-sm leading-5 text-body mb-7">
         <p>
           採用中型南非豪華遊獵帳，有別以往露營都是打地舖，鑽睡袋，營區內帳篷全部採用舒適的彈簧床墊，也是園區內唯一寵物友善的帳蓬，讓您帶著心愛的毛小孩留下美麗的露營回憶。
         </p>
@@ -45,7 +45,7 @@ function RoomsShowcase() {
       </section>
       <section className="mb-7 grid gap-2.5">
         <FlagTitle>帳內設備</FlagTitle>
-        <ul className="grid text-xs leading-5 gap-7 text-body">
+        <ul className="grid text-sm leading-5 gap-7 text-body">
           {equipmentsList.map((l, i) => (
             <ListItem key={i} className="last-of-type:text-red-primary">
               {l}
@@ -55,7 +55,7 @@ function RoomsShowcase() {
       </section>
       <section className="mb-8 grid gap-[10px]">
         <FlagTitle>住宿須知</FlagTitle>
-        <ul className="grid text-xs leading-5 gap-7 text-body">
+        <ul className="grid text-sm leading-5 gap-7 text-body">
           {noticeList.map((l, i) => (
             <ListItem key={i}>{l}</ListItem>
           ))}
@@ -63,7 +63,7 @@ function RoomsShowcase() {
       </section>
       <section className="mb-9 grid gap-[10px]">
         <FlagTitle>平/假日判定</FlagTitle>
-        <ul className="text-xs leading-5 text-body">
+        <ul className="text-sm leading-5 text-body">
           {holiVSNonholi.map((l, i) => (
             <li key={i}>{l}</li>
           ))}
@@ -77,7 +77,7 @@ function RoomsShowcase() {
 function ReservationButton({ className = "" }: { className?: string }) {
   return (
     <button
-      className={`flex items-center gap-1 px-3 py-2 text-xs font-medium border border-solid text-orange-primary border-orange-primary ${className}`}
+      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border border-solid text-orange-primary border-orange-primary ${className}`}
     >
       立即訂房
       <Image width={10} height={10} src={rightArrow} alt="right arrow" />

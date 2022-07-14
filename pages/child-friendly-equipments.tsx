@@ -40,9 +40,9 @@ function Article({
           />
         </div>
         <h2 className="text-lg font-medium text-green-primary ">{title}</h2>
-        <h3 className="text-xs font-normal leading-5 text-body">{body}</h3>
+        <h3 className="text-sm font-normal leading-5 text-body">{body}</h3>
 
-        <button className="flex items-center gap-1 px-3 py-2 text-xs font-normal border border-solid border-orange-primary text-orange-primary justify-self-start">
+        <button className="flex items-center gap-1 px-3 py-2 text-sm font-normal border border-solid border-orange-primary text-orange-primary justify-self-start">
           <Image src="/plus.svg" alt="plus sign" width={12} height={12} />
           瞭解更多
         </button>

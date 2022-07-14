@@ -28,7 +28,7 @@ function ContactUs() {
       <section className="grid gap-5 pt-8 pb-6">
         <article className="grid gap-4">
           <UnderscoredFlagTitle>交通方式</UnderscoredFlagTitle>
-          <p className="text-xs text-body">
+          <p className="text-sm text-body">
             國道六號行至埔里端出口後右轉，至鯉魚路後左轉。直行約2分鐘見左處一白色大橋(乾溪景觀橋)，開進後即抵達「緣溪行森林營地」。
           </p>
         </article>
@@ -80,7 +80,7 @@ function ContactUs() {
                     <h2 className="mb-1 text-sm font-bold text-green-primary">
                       {a.name}
                     </h2>
-                    <h3 className="mb-3 text-xs font-medium text-orange-primary">
+                    <h3 className="mb-3 text-sm font-medium text-orange-primary">
                       路程｜{a.duration}分鐘
                     </h3>
                   </div>
@@ -130,7 +130,7 @@ function ContactUs() {
       </section>
 
       <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-light-grey pb-7">
-        <h2 className="text-xs font-medium text-orange-primary">
+        <h2 className="text-sm font-medium text-orange-primary">
           請留下您的資訊，我們將會盡快聯繫您
         </h2>
         <div className="grid gap-4 text-sm font-medium ">
@@ -151,7 +151,7 @@ function ContactUs() {
             placeholder="請輸入您想說的話..."
           ></textarea>
           <button
-            className="px-8 py-2 text-xs font-medium border border-solid text-orange-primary border-orange-primary justify-self-center"
+            className="px-8 py-2 text-sm font-medium border border-solid text-orange-primary border-orange-primary justify-self-center"
             onClick={(e) => e.preventDefault()}
           >
             送出

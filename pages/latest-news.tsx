@@ -54,11 +54,11 @@ function Article({
         />
       </div>
 
-      <h3 className="mt-2 mb-1 text-xs font-medium text-orange-primary ">
+      <h3 className="mt-2 mb-1 text-sm font-medium text-orange-primary ">
         {date}
       </h3>
       <h2 className="text-lg font-medium text-green-primary ">{title}</h2>
-      <button className="flex items-center gap-1 px-3 py-2 mt-3 text-xs font-normal border border-solid border-orange-primary text-orange-primary">
+      <button className="flex items-center gap-1 px-3 py-2 mt-3 text-sm font-normal border border-solid border-orange-primary text-orange-primary">
         <Image src="/plus.svg" alt="plus sign" width={12} height={12} />
         瞭解更多
       </button>

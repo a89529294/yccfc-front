@@ -103,8 +103,8 @@ function Meals() {
                 )}`}
               />
             </div>
-            <p className="mb-3 text-xs leading-5 text-body">{a.body}</p>
-            <ul className="text-xs leading-5 text-body">
+            <p className="mb-3 text-sm leading-5 text-body">{a.body}</p>
+            <ul className="text-sm leading-5 text-body">
               {a.lis.map((l, i) => {
                 const isLast = i === a.lis.length - 1;
 

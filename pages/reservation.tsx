@@ -24,9 +24,33 @@ function Reservation() {
           星空行
         </div>
       </div>
-      <section>{/* left col 60% right col 40% */}</section>
+      <section className="flex gap-4">
+        <article className="grow-[6] ">
+          <label className="flex items-center gap-4 font-medium">
+            <span className="text-green-primary">房型</span>
+            {/* TODO safari needs appearance-none for <select> but it fucks up styling for chrome */}
+            <select className="relative text-orange-primary leading-7 py-1.5 pl-5 flex-1 outline outline-1 outline-orange-primary after:bg-black after:block after:absolute after:content-[url('/reservation/chevrom-down.svg')] after:w-[14px] after:h-2 after:right-20 after:top-1/2">
+              {roomTypes.map((t, i) => (
+                <option key={i}>{t}</option>
+              ))}
+            </select>
+          </label>
+        </article>
+        <article className="grow-[4] outline outline-1 outline-black">
+          bye
+        </article>
+      </section>
     </div>
   );
 }
+
+const roomTypes = [
+  "緣遊獵",
+  "溪遊獵",
+  "森林遊獵",
+  "星空行",
+  "愛綠地",
+  "情人營",
+];
 
 export default Reservation;

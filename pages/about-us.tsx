@@ -13,7 +13,7 @@ function aboutUs() {
         <h2 className="text-sm font-medium text-green-primary mb-7">
           「緣溪行，忘路之遠近。」歡迎您帶著親愛的家人，輕裝簡行，來到埔里；走進心裡的美好。
         </h2>
-        <div className="grid gap-6 text-xs text-body">
+        <div className="grid gap-6 text-sm text-body">
           <p>
             台灣超過3000公尺以上的高山有268座；日本10幾座，紐西蘭也只有20幾座。
           </p>
