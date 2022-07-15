@@ -30,7 +30,7 @@ function Reservation() {
         <article className="">
           <label className="flex items-center gap-4 font-medium">
             <span className="text-green-primary">房型</span>
-            <select className="relative appearance-none text-orange-primary leading-7 py-1.5 pl-5 flex-1 outline outline-1 outline-orange-primary bg-[url('../assets/reservation/chevron-down.svg')] bg-no-repeat bg-[top_50%_right_2rem]">
+            <select className="relative appearance-none text-orange-primary leading-7 py-1.5 pl-5 flex-1 outline outline-1 outline-grey-medium bg-[url('../assets/reservation/chevron-down.svg')] bg-no-repeat bg-[top_50%_right_2rem]">
               {roomTypes.map((t, i) => (
                 <option key={i}>{t}</option>
               ))}

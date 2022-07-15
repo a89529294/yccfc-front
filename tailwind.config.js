@@ -24,8 +24,10 @@ module.exports = {
         "red-primary": "#DD4040",
         "grey-dark": "#9F9F9F",
         "grey-light": "#F5F5F5",
-        body: "#4B4B4B",
         "grey-medium": "#D9D9D9",
+        body: "#4B4B4B",
+        "alpha-blue": "#5889B7",
+        "bland-celery": "#76955E",
       },
       width: {
         container: "520px",
