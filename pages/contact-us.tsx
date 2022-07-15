@@ -178,4 +178,12 @@ const attractions = [
 const minPosition = 0;
 const maxPosition = attractions.length - 3;
 
+export async function getStaticProps() {
+  return {
+    props: {
+      useGMap: true,
+    },
+  };
+}
+
 export default ContactUs;
