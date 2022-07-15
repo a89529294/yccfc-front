@@ -22,10 +22,10 @@ module.exports = {
         "green-primary": "rgb(58, 119, 82)",
         "orange-primary": "#E86E2A",
         "red-primary": "#DD4040",
-        "grey-primary": "#9F9F9F",
-        "light-grey": "#F5F5F5",
+        "grey-dark": "#9F9F9F",
+        "grey-light": "#F5F5F5",
         body: "#4B4B4B",
-        placeholder: "#D9D9D9",
+        "grey-medium": "#D9D9D9",
       },
       width: {
         container: "520px",

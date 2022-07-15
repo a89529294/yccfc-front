@@ -129,7 +129,7 @@ function ContactUs() {
         </article>
       </section>
 
-      <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-light-grey pb-7">
+      <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-grey-light pb-7">
         <h2 className="text-sm font-medium text-orange-primary">
           請留下您的資訊，我們將會盡快聯繫您
         </h2>
@@ -137,17 +137,17 @@ function ContactUs() {
           <input
             type="text"
             placeholder="請輸入您的姓名"
-            className="placeholder:text-placeholder py-1.5 px-4"
+            className="placeholder:text-grey-medium py-1.5 px-4"
           />
           <input
             type="text"
             placeholder="請輸入您的手機"
-            className="placeholder:text-placeholder py-1.5 px-4"
+            className="placeholder:text-grey-medium py-1.5 px-4"
           />
           <textarea
             cols={30}
             rows={10}
-            className="px-4 py-3 resize-none placeholder:text-placeholder"
+            className="px-4 py-3 resize-none placeholder:text-grey-medium"
             placeholder="請輸入您想說的話..."
           ></textarea>
           <button
