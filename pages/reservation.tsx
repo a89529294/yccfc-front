@@ -10,7 +10,7 @@ import RoomsAndDatesSelection from "../components/reservation/RoomsAndDatesSelec
 import MealsSelection from "../components/reservation/MealsSelection";
 
 function Reservation() {
-  const [stage, setStage] = useState<Stage>(0);
+  const [stage, setStage] = useState<Stage>(1);
   const [roomType, setRoomType] = useState(1);
   const roomTypeName = roomTypes.find((r) => r.id === roomType)?.name || "";
 

@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import ArrowButton from "../ArrowButton";
 import { roomTypes, selectableRooms } from "../../data/rooms";
 import Calendar from "../Calendar";
 import { Stage } from "../../data/reservation";
 import StageNavigator from "./StageNavigator";
+import RoomImage from "./RoomImage";
 
 function SelectRoomAndDate({
   roomType,
@@ -42,14 +42,7 @@ function SelectRoomAndDate({
               <div
                 key={i}
                 className="flex gap-3 p-3 pr-10 border border-solid border-grey-medium">
-                <div className="relative w-56 h-32">
-                  <Image
-                    src={r.imgPath}
-                    alt="room"
-                    objectFit="cover"
-                    layout="fill"
-                  />
-                </div>
+                <RoomImage path={r.imgPath} />
                 <div className="flex items-center justify-between flex-1">
                   <div className="flex flex-col h-full gap-2">
                     <h2 className="text-2xl font-bold text-green-primary">
