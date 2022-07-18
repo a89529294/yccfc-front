@@ -17,7 +17,7 @@ function MainPageLayout({
   hideFooter?: Boolean;
 }) {
   return (
-    <div className="flex-1 px-16 pt-20">
+    <div className="flex-1 px-24 pt-20">
       <div className="relative px-10 bg-white w-container">
         <div className="relative -ml-10 -mr-10 aspect-[520/92]">
           <Image

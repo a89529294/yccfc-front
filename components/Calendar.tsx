@@ -9,10 +9,10 @@ import { generateCells } from "../util/time";
 function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [cells, setCells] = useState<{ text: string; color: string }[]>([]);
+  const addExtraRow = cells.length < 49;
   useEffect(() => {
     const lastMonth = addMonths(currentMonth, -1);
     const beginningOfMonth = startOfMonth(currentMonth);
-    // const beginningOfMonth = startOfMonth(addMonths(now, 1));
     const endingOfMonth = endOfMonth(currentMonth);
     const endingOfLastMonth = endOfMonth(lastMonth);
 
@@ -52,6 +52,7 @@ function Calendar() {
           ))}
         </div>
       </div>
+      {addExtraRow ? <div className="h-12" /> : null}
     </div>
   );
 }

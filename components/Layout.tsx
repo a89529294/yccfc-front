@@ -24,14 +24,12 @@ function Layout({
       //   className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
       //     useGMap ? "bg-main-g-map" : bgs[currentBgIdx]
       //   }`}
-      className="relative flex flex-col min-h-full isolate"
-    >
+      className="relative flex flex-col min-h-full isolate">
       {useGMap ? (
         <iframe
           id="contact-us-map"
           className="absolute w-full h-screen bg-white-smoke"
-          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-        ></iframe>
+          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
       ) : (
         <>
           <BackgroundImage
@@ -49,7 +47,7 @@ function Layout({
         </>
       )}
 
-      <header className="relative flex items-center h-32 px-16 isolate">
+      <header className="relative flex items-center h-32 px-24 isolate">
         <Link href="/">
           <a className="relative block h-24 w-60">
             <Image
@@ -84,8 +82,7 @@ function Layout({
           viewBox="0 0 1440 124"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute top-0 left-0 w-full -z-10"
-        >
+          className="absolute top-0 left-0 w-full -z-10">
           <path
             opacity="0.9"
             d="M0.0541728 99.184C0.0541728 99.184 120.403 129.041 252 107C361.065 88.7331 447.584 85.5186 545 99.184C702.072 121.225 824.763 130.043 1001 107C1207.62 79.9498 1343.02 98.1821 1440 123.229V0H0L0.0541728 99.184Z"
@@ -135,8 +132,7 @@ function BackgroundImage({
             return newI;
           });
         }
-      }}
-    >
+      }}>
       <Image objectFit="cover" layout="fill" src={imgPath} alt="bg" />
     </div>
   );
