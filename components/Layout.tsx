@@ -28,7 +28,7 @@ function Layout({
       {useGMap ? (
         <iframe
           id="contact-us-map"
-          className="absolute w-full h-screen bg-white-smoke"
+          className="fixed w-full h-screen bg-white-smoke"
           src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
       ) : (
         <>
@@ -119,7 +119,7 @@ function BackgroundImage({
 
   return (
     <div
-      className="absolute w-full h-screen transition-opacity duration-1000 -z-10"
+      className="fixed w-full h-screen transition-opacity duration-1000 -z-10"
       style={{ opacity }}
       onTransitionEnd={(e) => {
         const opacity = window

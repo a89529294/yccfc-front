@@ -6,7 +6,8 @@ import calendar from "../assets/reservation/calendar.svg";
 import tent from "../assets/reservation/tent.svg";
 import { roomTypes } from "../data/rooms";
 import { Stage } from "../data/reservation";
-import SelectRoomAndDate from "../components/reservation/SelectRoomAndDate";
+import RoomsAndDatesSelection from "../components/reservation/RoomsAndDatesSelection";
+import MealsSelection from "../components/reservation/MealsSelection";
 
 function Reservation() {
   const [stage, setStage] = useState<Stage>(0);
@@ -32,8 +33,14 @@ function Reservation() {
       </div>
       <main>
         {stage === 0 ? (
-          <SelectRoomAndDate roomType={roomType} setRoomType={setRoomType} />
+          <RoomsAndDatesSelection
+            roomType={roomType}
+            setRoomType={setRoomType}
+            stage={stage}
+            setStage={setStage}
+          />
         ) : null}
+        {stage === 1 ? <MealsSelection /> : null}
       </main>
     </div>
   );

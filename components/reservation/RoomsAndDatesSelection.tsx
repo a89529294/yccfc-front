@@ -3,19 +3,24 @@ import Image from "next/image";
 import ArrowButton from "../ArrowButton";
 import { roomTypes, selectableRooms } from "../../data/rooms";
 import Calendar from "../Calendar";
+import { Stage } from "../../data/reservation";
+import StageNavigator from "./StageNavigator";
 
 function SelectRoomAndDate({
   roomType,
   setRoomType,
+  stage,
+  setStage,
 }: {
   roomType: number;
   setRoomType: React.Dispatch<React.SetStateAction<number>>;
+  stage: Stage;
+  setStage: React.Dispatch<React.SetStateAction<Stage>>;
 }) {
   return (
     <div>
       <section className="relative grid grid-cols-[6fr_4fr] gap-4">
-        <StageNavigator dir="left" />
-        <StageNavigator dir="right" />
+        <StageNavigator dir="right" stage={stage} setStage={setStage} />
         <article className="absolute h-full w-[calc((100%_-_16px)_*_0.6)] overflow-auto no-scrollbar">
           <label className="flex items-center gap-4 font-medium">
             <span className="text-green-primary">房型</span>
@@ -75,21 +80,6 @@ function SelectRoomAndDate({
           <Calendar />
         </article>
       </section>
-    </div>
-  );
-}
-
-function StageNavigator({ dir }: { dir: "left" | "right" }) {
-  const className =
-    dir === "right"
-      ? "translate-x-full -right-5 "
-      : "-translate-x-full -left-5";
-  const text = dir === "right" ? "下一步" : "上一步";
-  return (
-    <div
-      className={`grid gap-2 justify-items-center absolute top-1/2 translat-y-1/2 ${className}`}>
-      <ArrowButton dir={dir} onClick={() => {}} />
-      <em className="text-sm font-medium text-orange-primary">{text}</em>
     </div>
   );
 }
