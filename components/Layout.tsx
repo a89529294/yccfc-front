@@ -11,7 +11,7 @@ function Layout({
   useGMap = false,
 }: {
   children: React.ReactNode;
-  useGMap?: Boolean;
+  useGMap?: boolean;
 }) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ function Layout({
 
   return (
     <div
-      className="relative flex flex-col min-h-full isolate"
+      className="relative flex flex-col h-auto min-h-full isolate "
       onClick={() => setClicked(true)}>
       <header className="relative z-10 flex items-center h-32 px-24 isolate sm:px-8 sm:h-20">
         <Link href="/">
@@ -141,7 +141,8 @@ function Layout({
           />
         </>
       )}
-      <main className="relative flex-1 sm:top-56">{children}</main>
+
+      <main className={`relative sm:top-56`}>{children}</main>
     </div>
   );
 }

@@ -7,8 +7,8 @@ function ChildInnerPage() {
   return (
     <MainPageLayout
       headerImgURL="/cfe/title_facility.svg"
-      className="pt-10 pb-5">
-      <div className="relative w-96 h-52 bg-green-primary">
+      className="pt-10 pb-5 ">
+      <div className="relative w-96 aspect-[96/52] bg-green-primary sm:w-60">
         <div className="absolute w-full h-full left-10 bottom-2">
           <Image
             src="/cfe/cfeInnerPlaceholder.png"
