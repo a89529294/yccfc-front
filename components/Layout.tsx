@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+
+import burger from "../assets/burger.svg";
 
 function Layout({
   children,
@@ -9,26 +12,116 @@ function Layout({
   children: React.ReactNode;
   useGMap?: Boolean;
 }) {
+  const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentBgIdx, setCurrentBgIdx] = useState(1);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [router.pathname]);
+
   const [toggle, setToggle] = useState(true);
-  //   useEffect(() => {
-  //     const timer = setInterval(() => {
-  //       setToggle((t) => !t);
-  //     }, 5000);
-  //     return () => clearInterval(timer);
-  //   }, []);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setToggle((t) => !t);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div
-      //   className={`flex flex-col min-h-full bg-no-repeat bg-[length:100%_auto]  ${
-      //     useGMap ? "bg-main-g-map" : bgs[currentBgIdx]
-      //   }`}
-      className="relative flex flex-col min-h-full isolate">
+    <div className="relative flex flex-col min-h-full isolate">
+      <header className="relative flex items-center h-32 px-24 isolate sm:px-8 sm:h-20 sm:z-10">
+        <Link href="/">
+          <a className="relative block h-24 w-60 sm:h-16 sm:w-44">
+            <Image
+              src="/nav/logo.png"
+              layout="fill"
+              objectFit="contain"
+              alt="logo"
+            />
+          </a>
+        </Link>
+
+        {/* Desktop */}
+        <nav className="flex justify-around flex-1 text-lg font-medium font-inter text-green-primary sm:hidden">
+          {navLinks.map((l, i) => (
+            <Link href={l.path} key={i}>
+              <a>{l.text}</a>
+            </Link>
+          ))}
+        </nav>
+        <nav className="flex items-center gap-7 sm:hidden">
+          {mediaLinks.map((m, i) => (
+            <a key={i} href={m.url} className="h-5 group">
+              <div className="hover-hover:group-hover:hidden">
+                <Image width={20} height={20} alt={m.alt} src={m.img} />
+              </div>
+              <div className="hidden hover-hover:group-hover:block">
+                <Image width={20} height={20} alt={m.alt} src={m.imgHover} />
+              </div>
+            </a>
+          ))}
+        </nav>
+
+        <svg
+          viewBox="0 0 1440 124"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute top-0 left-0 w-full -z-10 sm:hidden">
+          <path
+            opacity="0.9"
+            d="M0.0541728 99.184C0.0541728 99.184 120.403 129.041 252 107C361.065 88.7331 447.584 85.5186 545 99.184C702.072 121.225 824.763 130.043 1001 107C1207.62 79.9498 1343.02 98.1821 1440 123.229V0H0L0.0541728 99.184Z"
+            fill="white"
+            fillOpacity="0.9"
+          />
+        </svg>
+
+        {/* Mobile */}
+        <div className="absolute top-0 left-0 hidden w-full h-full bg-white -z-10 sm:block " />
+
+        <div
+          className="relative hidden w-8 ml-auto aspect-square sm:block"
+          onClick={() => {
+            setIsMenuOpen((o) => !o);
+          }}>
+          <Image src={burger} alt="menu" layout="fill" objectFit="cover" />
+        </div>
+
+        {isMenuOpen ? (
+          <div className="absolute bottom-0 right-0 hidden translate-y-full bg-white sm:block">
+            <ul>
+              <li className="flex items-center justify-around py-2">
+                {mediaLinks.map((m, i) => (
+                  <a
+                    key={i}
+                    href={m.url}
+                    className="relative w-6 aspect-square">
+                    <Image
+                      src={m.img}
+                      alt={m.alt}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </a>
+                ))}
+              </li>
+              {navLinks.map((l, i) => (
+                <li
+                  key={i}
+                  className="px-12 py-4 border-t border-solid border-grey-medium">
+                  <Link href={l.path}>
+                    <a>{l.text}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </header>
       {useGMap ? (
         <iframe
           id="contact-us-map"
-          className="fixed w-full h-screen bg-white-smoke"
+          className="fixed w-full h-screen bg-white-smoke -z-10"
           src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
       ) : (
         <>
@@ -46,52 +139,9 @@ function Layout({
           />
         </>
       )}
-
-      <header className="relative flex items-center h-32 px-24 isolate">
-        <Link href="/">
-          <a className="relative block h-24 w-60">
-            <Image
-              src="/nav/logo.png"
-              layout="fill"
-              objectFit="contain"
-              alt="logo"
-            />
-          </a>
-        </Link>
-        <nav className="flex justify-around flex-1 text-lg font-medium font-inter text-green-primary">
-          {navLinks.map((l, i) => (
-            <Link href={l.path} key={i}>
-              <a>{l.text}</a>
-            </Link>
-          ))}
-        </nav>
-        <nav className="flex items-center gap-7">
-          {mediaLinks.map((m, i) => (
-            <a key={i} href={m.url} className="h-5 group">
-              <div className="hover-hover:group-hover:hidden">
-                <Image width={20} height={20} alt={m.alt} src={m.img} />
-              </div>
-              <div className="hidden hover-hover:group-hover:block">
-                <Image width={20} height={20} alt={m.alt} src={m.imgHover} />
-              </div>
-            </a>
-          ))}
-        </nav>
-
-        <svg
-          viewBox="0 0 1440 124"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute top-0 left-0 w-full -z-10">
-          <path
-            opacity="0.9"
-            d="M0.0541728 99.184C0.0541728 99.184 120.403 129.041 252 107C361.065 88.7331 447.584 85.5186 545 99.184C702.072 121.225 824.763 130.043 1001 107C1207.62 79.9498 1343.02 98.1821 1440 123.229V0H0L0.0541728 99.184Z"
-            fill="white"
-            fillOpacity="0.9"
-          />
-        </svg>
-      </header>
-      {children}
+      <main className="relative flex-1 pointer-events-none sm:top-56">
+        {children}
+      </main>
     </div>
   );
 }
@@ -119,7 +169,7 @@ function BackgroundImage({
 
   return (
     <div
-      className="fixed w-full h-screen transition-opacity duration-1000 -z-10"
+      className="fixed w-full h-screen transition-opacity duration-1000 -z-10 sm:absolute sm:w-full sm:h-56 sm:top-20 sm:left-0"
       style={{ opacity }}
       onTransitionEnd={(e) => {
         const opacity = window

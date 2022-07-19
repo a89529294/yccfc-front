@@ -17,8 +17,8 @@ function MainPageLayout({
   hideFooter?: Boolean;
 }) {
   return (
-    <div className="flex-1 px-24 pt-20">
-      <div className="relative px-10 bg-white w-container">
+    <div className="px-24 pt-20 sm:px-8 sm:pt-0 sm:-z-10">
+      <div className="relative px-10 bg-white w-container sm:w-full sm:px-0">
         <div className="relative -ml-10 -mr-10 aspect-[520/92]">
           <Image
             src={headerImgURL}
@@ -27,7 +27,7 @@ function MainPageLayout({
             alt="header"
           />
         </div>
-        <div className="absolute right-0 translate-x-full cursor-pointer top-2 group">
+        <div className="absolute right-0 translate-x-full cursor-pointer top-2 group sm:hidden">
           <div className="hover-hover:group-hover:hidden">
             <Image width={50} height={50} src={close} alt="close" />
           </div>
