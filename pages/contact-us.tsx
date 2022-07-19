@@ -23,8 +23,7 @@ function ContactUs() {
     <MainPageLayout
       headerImgURL="/contact-us/title_contact.svg"
       className="font-noto-sans"
-      hideFooter
-    >
+      hideFooter>
       <section className="grid gap-5 pt-8 pb-6">
         <article className="grid gap-4">
           <UnderscoredFlagTitle>交通方式</UnderscoredFlagTitle>
@@ -45,17 +44,14 @@ function ContactUs() {
                 className="flex gap-[2%] transition-transform"
                 style={{
                   transform: `translateX(${distance})`,
-                }}
-              >
+                }}>
                 {attractions.map((a, i) => (
                   <div
                     key={i}
-                    className="basis-[32%] shrink-0 border-b-[3px] border-solid border-green-primary"
-                  >
+                    className="basis-[32%] shrink-0 border-b-[3px] border-solid border-green-primary">
                     <div
                       className="relative aspect-[142/106] mb-2"
-                      ref={imageContainerRef}
-                    >
+                      ref={imageContainerRef}>
                       <Image
                         src={a.imgPath}
                         alt="attraction"
@@ -129,7 +125,7 @@ function ContactUs() {
         </article>
       </section>
 
-      <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-grey-light pb-7">
+      <form className="grid gap-5 px-10 pt-5 -ml-10 -mr-10 bg-grey-lightest pb-7">
         <h2 className="text-sm font-medium text-orange-primary">
           請留下您的資訊，我們將會盡快聯繫您
         </h2>
@@ -148,12 +144,10 @@ function ContactUs() {
             cols={30}
             rows={10}
             className="px-4 py-3 resize-none placeholder:text-grey-medium"
-            placeholder="請輸入您想說的話..."
-          ></textarea>
+            placeholder="請輸入您想說的話..."></textarea>
           <button
             className="px-8 py-2 text-sm font-medium border border-solid text-orange-primary border-orange-primary justify-self-center"
-            onClick={(e) => e.preventDefault()}
-          >
+            onClick={(e) => e.preventDefault()}>
             送出
           </button>
         </div>

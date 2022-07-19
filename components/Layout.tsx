@@ -12,12 +12,12 @@ function Layout({
   const [currentBgIdx, setCurrentBgIdx] = useState(1);
 
   const [toggle, setToggle] = useState(true);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setToggle((t) => !t);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  //   useEffect(() => {
+  //     const timer = setInterval(() => {
+  //       setToggle((t) => !t);
+  //     }, 5000);
+  //     return () => clearInterval(timer);
+  //   }, []);
 
   return (
     <div

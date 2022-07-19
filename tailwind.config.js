@@ -10,6 +10,9 @@ module.exports = {
       spacing: {
         1.5: "6px",
         2.5: "10px",
+        3.5: "14px",
+        4.5: "18px",
+        7.5: "30px",
       },
       backgroundImage: {
         "main-g-map": 'url("/main-g-map.png")',
@@ -23,9 +26,10 @@ module.exports = {
         "green-primary": "rgb(58, 119, 82)",
         "orange-primary": "#E86E2A",
         "red-primary": "#DD4040",
-        "grey-dark": "#9F9F9F",
-        "grey-light": "#F5F5F5",
+        "grey-lightest": "#F5F5F5",
+        "grey-light": "#EAEAEA",
         "grey-medium": "#D9D9D9",
+        "grey-dark": "#9F9F9F",
         body: "#4B4B4B",
         "alpha-blue": "#5889B7",
         "bland-celery": "#76955E",

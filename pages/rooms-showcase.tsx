@@ -13,9 +13,8 @@ function RoomsShowcase() {
   return (
     <MainPageLayout
       headerImgURL="/rooms-showcase/title_tent.svg"
-      className="py-8 font-noto-sans"
-    >
-      <div className="flex justify-between text-orange-primary mb-[14px]">
+      className="py-8 font-noto-sans">
+      <div className="flex justify-between text-orange-primary mb-3.5">
         <UnderscoredFlagTitle>溪遊獵</UnderscoredFlagTitle>
         <ReservationButton />
       </div>
@@ -77,8 +76,7 @@ function RoomsShowcase() {
 function ReservationButton({ className = "" }: { className?: string }) {
   return (
     <button
-      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border border-solid text-orange-primary border-orange-primary ${className}`}
-    >
+      className={`flex items-center gap-1 px-3 py-2 text-sm font-medium border border-solid text-orange-primary border-orange-primary ${className}`}>
       立即訂房
       <Image width={10} height={10} src={rightArrow} alt="right arrow" />
     </button>

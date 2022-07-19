@@ -6,8 +6,8 @@ import calendar from "../assets/reservation/calendar.svg";
 import tent from "../assets/reservation/tent.svg";
 import { roomTypes } from "../data/rooms";
 import { Stage } from "../data/reservation";
-import RoomsAndDatesSelection from "../components/reservation/RoomsAndDatesSelection";
-import MealsSelection from "../components/reservation/MealsSelection";
+import RoomsAndDatesSelection from "../components/reservation/roomDateSelection/RoomsAndDatesSelectionMain";
+import MealsSelection from "../components/reservation/mealSelection/MealsSelectionMain";
 
 function Reservation() {
   const [stage, setStage] = useState<Stage>(1);
@@ -17,7 +17,7 @@ function Reservation() {
   return (
     <div className="grid px-20 pt-10 pb-24 mx-24 mt-20 bg-white font-noto-sans gap-7">
       <ProgressBar />
-      <div className="flex items-center py-2 pl-6 bg-grey-light">
+      <div className="flex items-center py-2 pl-6 bg-grey-lightest">
         <Image src={calendar} alt="calendar" width={27} height={27} />
         <div className="px-5 py-1 ml-6 font-bold leading-7 bg-white">
           2022/7/20～2022/7/21
