@@ -4,13 +4,20 @@ import MainPageLayout from "../components/MainPageLayout";
 
 import newsArticleImg from "../assets/latest-news/placeholder.png";
 import { toBase64, shimmer } from "../components/BlurredImage";
+import Link from "next/link";
 
 function latestNews() {
   return (
     <MainPageLayout headerImgURL="/latest-news/news-header.svg">
       <div className="grid grid-cols-news-container gap-x-4 gap-y-7 my-7">
         {articles.map((a, i) => (
-          <Article key={i} img={a.img} title={a.title} date={a.date} />
+          <Article
+            key={i}
+            img={a.img}
+            title={a.title}
+            date={a.date}
+            id={a.id}
+          />
         ))}
       </div>
     </MainPageLayout>
@@ -18,10 +25,12 @@ function latestNews() {
 }
 
 function Article({
+  id,
   img,
   title,
   date,
 }: {
+  id: number;
   img: StaticImageData;
   title: string;
   date: string;
@@ -60,32 +69,38 @@ function Article({
       <h2 className="text-lg font-medium text-green-primary ">{title}</h2>
       <button className="flex items-center gap-1 px-3 py-2 mt-3 text-sm font-normal border border-solid border-orange-primary text-orange-primary">
         <Image src="/plus.svg" alt="plus sign" width={12} height={12} />
-        瞭解更多
+        <Link href={`/latest-news/${id}`}>
+          <a>瞭解更多</a>
+        </Link>
       </button>
     </article>
   );
 }
 
-const articles = [
+export const articles = [
   {
+    id: 1,
     img: newsArticleImg,
-    title: "標題",
+    title: "標題1",
     date: "2022/06/30",
   },
   {
+    id: 2,
     img: newsArticleImg,
-    title: "標題",
-    date: "2022/06/30",
+    title: "標題2",
+    date: "2022/06/31",
   },
   {
+    id: 3,
     img: newsArticleImg,
-    title: "標題",
-    date: "2022/06/30",
+    title: "標題3",
+    date: "2022/06/28",
   },
   {
+    id: 4,
     img: newsArticleImg,
-    title: "標題",
-    date: "2022/06/30",
+    title: "標題4",
+    date: "2022/06/29",
   },
 ];
 

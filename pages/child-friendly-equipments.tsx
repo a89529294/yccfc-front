@@ -1,14 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { toBase64, shimmer } from "../components/BlurredImage";
 import MainPageLayout from "../components/MainPageLayout";
 
 function ChildFriendlyEquipments() {
   return (
-    <MainPageLayout headerImgURL="/latest-news/news-header.svg">
+    <MainPageLayout headerImgURL="/cfe/title_facility.svg">
       <div className="grid grid-cols-news-container gap-x-4 gap-y-7 my-7">
         {articles.map((a, i) => (
-          <Article key={i} img={a.img} title={a.title} body={a.body} />
+          <Article
+            key={i}
+            img={a.img}
+            title={a.title}
+            body={a.body}
+            id={a.id}
+          />
         ))}
       </div>
     </MainPageLayout>
@@ -16,10 +23,12 @@ function ChildFriendlyEquipments() {
 }
 
 function Article({
+  id,
   img,
   title,
   body,
 }: {
+  id: number;
   img: string;
   title: string;
   body: string;
@@ -44,7 +53,9 @@ function Article({
 
         <button className="flex items-center gap-1 px-3 py-2 text-sm font-normal border border-solid border-orange-primary text-orange-primary justify-self-start">
           <Image src="/plus.svg" alt="plus sign" width={12} height={12} />
-          瞭解更多
+          <Link href={`/child-friendly-equipments/${id}`}>
+            <a>瞭解更多</a>
+          </Link>
         </button>
       </div>
     </article>
@@ -53,21 +64,25 @@ function Article({
 
 const articles = [
   {
+    id: 1,
     img: "/cfe/cfe-placeholder.png",
     title: "孩子們的新夥伴",
     body: "哇!!孩子們!!緣溪行有新夥伴加入了!! 可愛的動物碰碰車!!讓營區親子設施添加一份熱鬧~ 爸爸媽媽⋯⋯",
   },
   {
+    id: 2,
     img: "/cfe/cfe-placeholder.png",
     title: "孩子們的新夥伴",
     body: "哇!!孩子們!!緣溪行有新夥伴加入了!! 可愛的動物碰碰車!!讓營區親子設施添加一份熱鬧~ 爸爸媽媽⋯⋯",
   },
   {
+    id: 3,
     img: "/cfe/cfe-placeholder.png",
     title: "孩子們的新夥伴",
     body: "哇!!孩子們!!緣溪行有新夥伴加入了!! 可愛的動物碰碰車!!讓營區親子設施添加一份熱鬧~ 爸爸媽媽⋯⋯",
   },
   {
+    id: 4,
     img: "/cfe/cfe-placeholder.png",
     title: "孩子們的新夥伴",
     body: "哇!!孩子們!!緣溪行有新夥伴加入了!! 可愛的動物碰碰車!!讓營區親子設施添加一份熱鬧~ 爸爸媽媽⋯⋯",

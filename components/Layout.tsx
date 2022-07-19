@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import burger from "../assets/burger.svg";
+import { clickContext } from "../pages/_app";
 
 function Layout({
   children,
@@ -15,6 +16,7 @@ function Layout({
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentBgIdx, setCurrentBgIdx] = useState(1);
+  const { setClicked } = useContext(clickContext);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -29,8 +31,10 @@ function Layout({
   }, []);
 
   return (
-    <div className="relative flex flex-col min-h-full isolate">
-      <header className="relative flex items-center h-32 px-24 isolate sm:px-8 sm:h-20 sm:z-10">
+    <div
+      className="relative flex flex-col min-h-full isolate"
+      onClick={() => setClicked(true)}>
+      <header className="relative z-10 flex items-center h-32 px-24 isolate sm:px-8 sm:h-20">
         <Link href="/">
           <a className="relative block h-24 w-60 sm:h-16 sm:w-44">
             <Image
@@ -45,9 +49,7 @@ function Layout({
         {/* Desktop */}
         <nav className="flex justify-around flex-1 text-lg font-medium font-inter text-green-primary sm:hidden">
           {navLinks.map((l, i) => (
-            <Link href={l.path} key={i}>
-              <a>{l.text}</a>
-            </Link>
+            <DesktopNavLink l={l} key={i} />
           ))}
         </nav>
         <nav className="flex items-center gap-7 sm:hidden">
@@ -139,10 +141,51 @@ function Layout({
           />
         </>
       )}
-      <main className="relative flex-1 pointer-events-none sm:top-56">
-        {children}
-      </main>
+      <main className="relative flex-1 sm:top-56">{children}</main>
     </div>
+  );
+}
+
+function DesktopNavLink({ l }: { l: typeof navLinks[number] }) {
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const { clicked, setClicked } = useContext(clickContext);
+
+  useEffect(() => {
+    clicked && setIsSubMenuOpen(false);
+  }, [clicked]);
+  return l.subMenu ? (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsSubMenuOpen((o) => !o);
+      }}
+      className="relative">
+      <div className="flex items-center gap-2">
+        {l.text}
+        <Image
+          src="/chevron-down.svg"
+          alt="chevron"
+          width={10}
+          height={5}></Image>
+      </div>
+      {isSubMenuOpen ? (
+        <ul className="absolute -bottom-2 border-t-2 border-solid border-orange-primary bg-white w-[120%] -left-[10%] text-lg translate-y-full whitespace-nowrap text-green-primary">
+          {l.subMenu.map((sm, i) => (
+            <li
+              key={i}
+              className="py-2 border-solid first-of-type:border-b border-grey-medium">
+              <Link href={sm.path}>
+                <a>{sm.name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </button>
+  ) : (
+    <Link href={l.path}>
+      <a className="flex items-center gap-2">{l.text}</a>
+    </Link>
   );
 }
 
@@ -211,6 +254,11 @@ const navLinks = [
   {
     text: "關於我們",
     path: "/about-us",
+    // useSubMenu: true,
+    subMenu: [
+      { name: "關於我們", path: "/about-us" },
+      { name: "花絮", path: "/about-us-misc" },
+    ],
   },
   {
     text: "最新消息",
@@ -219,6 +267,8 @@ const navLinks = [
   {
     text: "房型介紹",
     path: "/rooms-showcase",
+    // useSubMenu: true,
+    subMenu: [{ name: "房型介紹", path: "/rooms-showcase" }],
   },
   {
     text: "餐點介紹",

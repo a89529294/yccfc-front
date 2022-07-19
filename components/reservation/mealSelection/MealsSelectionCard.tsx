@@ -82,7 +82,7 @@ function SingleMealDetails({
           className="absolute w-2.5 aspect-square right-1 top-1"
           onClick={() => setQty((v) => ++v)}>
           <Image
-            src="/reservation/chevron-up.svg"
+            src="/chevron-up.svg"
             alt="chevron up"
             layout="fill"
             objectFit="cover"
@@ -93,7 +93,7 @@ function SingleMealDetails({
           className="absolute w-2.5 aspect-square right-1 bottom-1"
           onClick={() => setQty((v) => (!v ? v : --v))}>
           <Image
-            src="/reservation/chevron-down.svg"
+            src="/chevron-down.svg"
             alt="chevron down"
             layout="fill"
             objectFit="cover"
