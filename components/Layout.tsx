@@ -36,7 +36,7 @@ function Layout({
     <div
       className="relative flex flex-col h-auto min-h-full isolate "
       onClick={() => setClicked(true)}>
-      <header className="relative z-10 flex items-center h-32 px-24 isolate sm:px-8 sm:h-20">
+      <header className="relative z-10 flex items-center h-32 px-24 cursor-pointer isolate sm:px-8 sm:h-20">
         <Link href="/">
           <a className="relative block h-24 w-60 sm:h-16 sm:w-44">
             <Image
@@ -145,7 +145,9 @@ function Layout({
         </>
       )}
 
-      <main className={`relative sm:top-56 flex-1`}>{children}</main>
+      <main className={`relative sm:top-56 flex-1 sm:flex-none`}>
+        {children}
+      </main>
     </div>
   );
 }

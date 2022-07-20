@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>緣溪行</title>
       </Head>
-      <div className="absolute grid content-between justify-center py-6 right-24 bottom-8 w-96 h-72 isolate justify-items-center sm:w-72 sm:h-60 sm:-bottom-96 sm:right-2">
+      <div className="absolute grid content-between justify-center py-6 right-24 bottom-8 w-96 h-72 isolate justify-items-center sm:w-72 sm:h-60 sm:-bottom-72 sm:right-2">
         <Image
           src="/index/widget.png"
           alt="widget"

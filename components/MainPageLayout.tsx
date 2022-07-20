@@ -37,7 +37,7 @@ function MainPageLayout({
         </div>
         <section className={className}>{children}</section>
         {hideFooter ? null : (
-          <div className="px-10 pb-5 -ml-10 -mr-10">
+          <div className="px-10 pb-5 -mx-10 sm:ml-0">
             <Image src={footer} layout="responsive" alt="section footer" />
           </div>
         )}

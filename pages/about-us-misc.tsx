@@ -29,7 +29,7 @@ function Geo() {
           }}></div>
       </div> */}
 
-      <div className="relative w-[150px] aspect-square -translate-x-1/2 left-1/2 ">
+      <div className="relative w-[150px] aspect-square -translate-x-1/2 left-1/2 sm:-translate-x-full">
         <div className="absolute w-[135px] h-[133px] left-1.5 rounded-full overflow-hidden">
           <Image
             src="/about-us/misc-placeholder.png"
@@ -61,7 +61,7 @@ function Geo() {
 
       <div className="left-52 relative w-8 h-20 -skew-x-[20deg] border-r border-dashed border-orange-primary" />
 
-      <div className="relative w-[90px] aspect-square -translate-x-1/2 left-1/2">
+      <div className="relative w-[90px] aspect-square -translate-x-1/2 left-1/2 sm:-translate-x-full">
         <div className="absolute w-[90px] h-[90px]  rounded-full overflow-hidden">
           <Image
             src="/about-us/misc-placeholder.png"
