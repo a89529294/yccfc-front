@@ -16,11 +16,13 @@ function Layout({
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentBgIdx, setCurrentBgIdx] = useState(1);
-  const { setClicked } = useContext(clickContext);
+  // TODO find a better way to close mobile menu when user click somewhere else
+  const { clicked, setClicked } = useContext(clickContext);
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [router.pathname]);
+    clicked && setIsMenuOpen(false);
+  }, [router.pathname, clicked]);
 
   const [toggle, setToggle] = useState(true);
   useEffect(() => {
@@ -83,8 +85,9 @@ function Layout({
 
         <div
           className="relative hidden w-8 ml-auto aspect-square sm:block"
-          onClick={() => {
+          onClick={(e) => {
             setIsMenuOpen((o) => !o);
+            e.stopPropagation();
           }}>
           <Image src={burger} alt="menu" layout="fill" objectFit="cover" />
         </div>
@@ -123,7 +126,7 @@ function Layout({
       {useGMap ? (
         <iframe
           id="contact-us-map"
-          className="fixed w-full h-screen bg-white-smoke -z-10"
+          className="fixed w-full h-screen bg-white-smoke -z-10 sm:absolute sm:w-full sm:h-56 sm:top-20 sm:left-0 sm:z-0"
           src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=zh-TW&amp;q=緣溪行森林營地&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
       ) : (
         <>
