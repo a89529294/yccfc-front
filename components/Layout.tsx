@@ -142,7 +142,7 @@ function Layout({
         </>
       )}
 
-      <main className={`relative sm:top-56`}>{children}</main>
+      <main className={`relative sm:top-56 flex-1`}>{children}</main>
     </div>
   );
 }

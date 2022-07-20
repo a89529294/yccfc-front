@@ -24,7 +24,7 @@ function ContactUs() {
       headerImgURL="/contact-us/title_contact.svg"
       className="font-noto-sans"
       hideFooter>
-      <section className="grid gap-5 pt-8 pb-6">
+      <section className="grid gap-5 pt-8 pb-6 sm:px-2">
         <article className="grid gap-4">
           <UnderscoredFlagTitle>交通方式</UnderscoredFlagTitle>
           <p className="text-sm text-body">
