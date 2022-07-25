@@ -8,20 +8,38 @@ import rightArrow from "../assets/right-arrow.svg";
 import UnderscoredFlagTitle from "../components/UnderscoredFlagTitle";
 
 import { shimmer, toBase64 } from "../components/BlurredImage";
+import { useRouter } from "next/router";
+import { roomTypes } from "../data/rooms";
 
 function RoomsShowcase() {
+  const router = useRouter();
+  const { q } = router.query;
+  if (
+    typeof q === "object" ||
+    q === undefined ||
+    !roomTypes.find((rt) => rt.id === +q)
+  )
+    return (
+      <MainPageLayout
+        headerImgURL="/rooms-showcase/title_tent.svg"
+        className="py-8 font-noto-sans">
+        {" "}
+      </MainPageLayout>
+    );
+
+  const room = roomTypes.find((rt) => rt.id === +q);
   return (
     <MainPageLayout
       headerImgURL="/rooms-showcase/title_tent.svg"
       className="py-8 font-noto-sans">
       <div className="flex justify-between text-orange-primary mb-3.5">
-        <UnderscoredFlagTitle>溪遊獵</UnderscoredFlagTitle>
+        <UnderscoredFlagTitle>{room!.name}</UnderscoredFlagTitle>
         <ReservationButton />
       </div>
       <section className="flex flex-col gap-[6px] mb-6">
         <div className="relative aspect-[440/248]">
           <Image
-            src="/rooms-showcase/xiyoulie/1.png"
+            src={room!.mainImg}
             layout="fill"
             objectFit="cover"
             alt="main img"
@@ -31,7 +49,10 @@ function RoomsShowcase() {
             )}`}
           />
         </div>
-        <Slider imgs={imgs} imgDimensions={{ width: 130, height: 73 }} />
+        <Slider
+          imgs={room!.subImgs}
+          imgDimensions={{ width: 130, height: 73 }}
+        />
       </section>
       <section className="grid gap-6 text-sm leading-5 text-body mb-7">
         <p>
@@ -84,9 +105,9 @@ function ReservationButton({ className = "" }: { className?: string }) {
 }
 
 const imgs = [
-  "/rooms-showcase/xiyoulie/2.png",
-  "/rooms-showcase/xiyoulie/3.png",
-  "/rooms-showcase/xiyoulie/4.png",
+  "/rooms-showcase/xiyoulie/2.jpg",
+  "/rooms-showcase/xiyoulie/3.jpg",
+  "/rooms-showcase/xiyoulie/4.jpg",
   "/rooms-showcase/xiyoulie/5.jpg",
   "/rooms-showcase/xiyoulie/6.jpg",
   "/rooms-showcase/xiyoulie/7.jpg",

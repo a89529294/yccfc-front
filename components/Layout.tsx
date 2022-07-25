@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 
 import burger from "../assets/burger.svg";
+import { roomTypes } from "../data/rooms";
 import { clickContext } from "../pages/_app";
 
 function Layout({
@@ -179,7 +180,7 @@ function DesktopNavLink({ l }: { l: typeof navLinks[number] }) {
           {l.subMenu.map((sm, i) => (
             <li
               key={i}
-              className="py-2 border-solid first-of-type:border-b border-grey-medium">
+              className="py-2 border-t border-solid first-of-type:border-t-0 border-grey-medium">
               <Link href={sm.path}>
                 <a>{sm.name}</a>
               </Link>
@@ -260,7 +261,6 @@ const navLinks = [
   {
     text: "關於我們",
     path: "/about-us",
-    // useSubMenu: true,
     subMenu: [
       { name: "關於我們", path: "/about-us" },
       { name: "花絮", path: "/about-us-misc" },
@@ -273,8 +273,13 @@ const navLinks = [
   {
     text: "房型介紹",
     path: "/rooms-showcase",
-    // useSubMenu: true,
-    subMenu: [{ name: "房型介紹", path: "/rooms-showcase" }],
+    // subMenu: [{ name: "房型介紹", path: "/rooms-showcase" }],
+    subMenu: [
+      ...roomTypes.map((rt) => ({
+        name: rt.name,
+        path: `/rooms-showcase?q=${rt.id}`,
+      })),
+    ],
   },
   {
     text: "餐點介紹",

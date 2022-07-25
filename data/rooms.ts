@@ -1,10 +1,69 @@
 const roomTypes = [
-  { id: 1, name: "緣遊獵" },
-  { id: 2, name: "溪遊獵" },
-  { id: 3, name: "森林遊獵" },
-  { id: 4, name: "星空行" },
-  { id: 5, name: "愛綠地" },
-  { id: 6, name: "情人營" },
+  {
+    id: 1,
+    name: "緣遊獵",
+    mainImg: "/rooms-showcase/yuanyoulie/1.jpg",
+    subImgs: [
+      "/rooms-showcase/yuanyoulie/2.jpg",
+      "/rooms-showcase/yuanyoulie/3.jpg",
+      "/rooms-showcase/yuanyoulie/4.jpg",
+      "/rooms-showcase/yuanyoulie/5.jpg",
+    ],
+  },
+  {
+    id: 2,
+    name: "溪遊獵",
+    mainImg: "/rooms-showcase/xiyoulie/1.jpg",
+    subImgs: [
+      "/rooms-showcase/xiyoulie/2.jpg",
+      "/rooms-showcase/xiyoulie/3.jpg",
+      "/rooms-showcase/xiyoulie/4.jpg",
+      "/rooms-showcase/xiyoulie/5.jpg",
+      "/rooms-showcase/xiyoulie/6.jpg",
+      "/rooms-showcase/xiyoulie/7.jpg",
+      "/rooms-showcase/xiyoulie/8.jpg",
+    ],
+  },
+  {
+    id: 3,
+    name: "森林遊獵",
+    mainImg: "/rooms-showcase/senlinyoulie/1.jpg",
+    subImgs: [
+      "/rooms-showcase/senlinyoulie/2.jpg",
+      "/rooms-showcase/senlinyoulie/3.jpg",
+      "/rooms-showcase/senlinyoulie/4.jpg",
+      "/rooms-showcase/senlinyoulie/5.jpg",
+    ],
+  },
+  {
+    id: 4,
+    name: "星空行",
+    mainImg: "/rooms-showcase/xingkongxing/1.jpg",
+    subImgs: [
+      "/rooms-showcase/xingkongxing/2.jpg",
+      "/rooms-showcase/xingkongxing/3.jpg",
+      "/rooms-showcase/xingkongxing/4.jpg",
+      "/rooms-showcase/xingkongxing/5.jpg",
+    ],
+  },
+  {
+    id: 5,
+    name: "愛綠地",
+    mainImg: "/rooms-showcase/ailudi/1.jpg",
+    subImgs: ["/rooms-showcase/ailudi/2.jpg", "/rooms-showcase/ailudi/3.jpg"],
+  },
+  {
+    id: 6,
+    name: "情人營",
+    mainImg: "/rooms-showcase/qingrenying/1.jpg",
+    subImgs: [
+      "/rooms-showcase/qingrenying/2.jpg",
+      "/rooms-showcase/qingrenying/3.jpg",
+      "/rooms-showcase/qingrenying/4.jpg",
+      "/rooms-showcase/qingrenying/5.jpg",
+      "/rooms-showcase/qingrenying/6.jpg",
+    ],
+  },
 ];
 
 const selectableRooms: {
