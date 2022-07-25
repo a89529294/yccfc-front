@@ -238,22 +238,22 @@ function BackgroundImage({
 }
 
 const bgURLs = [
-  "/main-bg/1-min.png",
-  "/main-bg/2-min.png",
-  "/main-bg/3-min.png",
-  "/main-bg/4-min.png",
-  "/main-bg/5-min.png",
-  "/main-bg/6-min.png",
-  "/main-bg/7-min.png",
-  "/main-bg/8-min.png",
-  "/main-bg/9-min.png",
-  "/main-bg/10-min.png",
-  "/main-bg/11-min.png",
-  "/main-bg/12-min.png",
-  "/main-bg/13-min.png",
-  "/main-bg/14-min.png",
-  "/main-bg/15-min.png",
-  "/main-bg/16-min.png",
+  "/main-bg/1-min.jpg",
+  "/main-bg/2-min.jpg",
+  "/main-bg/3-min.jpg",
+  "/main-bg/4-min.jpg",
+  "/main-bg/5-min.jpg",
+  "/main-bg/6-min.jpg",
+  "/main-bg/7-min.jpg",
+  "/main-bg/8-min.jpg",
+  "/main-bg/9-min.jpg",
+  "/main-bg/10-min.jpg",
+  "/main-bg/11-min.jpg",
+  "/main-bg/12-min.jpg",
+  "/main-bg/13-min.jpg",
+  "/main-bg/14-min.jpg",
+  "/main-bg/15-min.jpg",
+  "/main-bg/16-min.jpg",
 ];
 
 const navLinks = [

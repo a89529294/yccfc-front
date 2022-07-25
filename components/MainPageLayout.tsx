@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import footer from "../assets/container-footer.png";
-import close from "../assets/close.svg";
-import closeHover from "../assets/close-hover.svg";
 
+import LeftChevron from "./svg/LeftChevron";
+import RightChevron from "./svg/RightChevron";
 function MainPageLayout({
   children,
   headerImgURL,
@@ -16,9 +16,15 @@ function MainPageLayout({
   className?: string;
   hideFooter?: Boolean;
 }) {
+  const [showContent, setShowContent] = useState(true);
+
+  const slideLeft = "-translate-x-[calc(100%_+_96px)]";
   return (
     <div className="px-24 pt-20 sm:px-8 sm:pt-0 sm:-z-10">
-      <div className="relative px-10 bg-white w-container sm:w-full sm:px-0">
+      <div
+        className={`transition-transform relative px-10 bg-white rounded-md w-container sm:w-full sm:px-0 ${
+          showContent ? "" : slideLeft
+        }`}>
         <div className="relative -mx-10  aspect-[520/92] sm:mx-0">
           <Image
             src={headerImgURL}
@@ -28,12 +34,12 @@ function MainPageLayout({
           />
         </div>
         <div className="absolute right-0 translate-x-full cursor-pointer top-2 group sm:hidden">
-          <div className="hover-hover:group-hover:hidden">
-            <Image width={50} height={50} src={close} alt="close" />
-          </div>
-          <div className="hidden hover-hover:group-hover:block">
-            <Image width={50} height={50} src={closeHover} alt="close hover" />
-          </div>
+          <button
+            className="flex flex-col items-center px-2 py-1 text-white hover-hover:group-hover:bg-green-primary bg-orange-primary"
+            onClick={() => setShowContent((s) => !s)}>
+            {showContent ? <LeftChevron /> : <RightChevron />}
+            <span className="text-xs ">{showContent ? "close" : "open"}</span>
+          </button>
         </div>
         <section className={className}>{children}</section>
         {hideFooter ? null : (
